@@ -81,7 +81,6 @@ export default function ChatClient() {
       }
     });
 
-
     socket.io.on("reconnect_error", () => {
       setConnectionError("Reconnecting...");
     });
