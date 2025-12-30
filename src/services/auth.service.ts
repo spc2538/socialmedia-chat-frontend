@@ -17,7 +17,7 @@ export interface RegisterPayload {
 }
 
 export async function login(email: string, password: string): Promise<LoginResponse> {
-  const res = await fetch(`${API_URL}/login`, {
+  const res = await fetch(`${API_URL}/api/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export async function logout(): Promise<void> {
 
   if (!token) return;
 
-  await fetch(`${API_URL}/logout`, {
+  await fetch(`${API_URL}/api/auth/logout`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ export async function logout(): Promise<void> {
 }
 
 export async function register(data: RegisterPayload): Promise<void> {
-  const res = await fetch(`${API_URL}/register`, {
+  const res = await fetch(`${API_URL}/api/auth/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
